@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<title>
+    Ava Hermann - Home
+</title>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/257finalProject_MessageStyled.css" />
+    <meta charset=”UTF-8”>
+    <meta name=”viewport” content=”width=device-width, initial scale=1”>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+
+    </script>
+</head>
+
+<body>
+    <div id="logoHeader">
+        <img src="img/headerLogoWhite.png">
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="257finalProject_gallery.html">Gallery</a>
+            </li>
+            <li>
+                <a href="257finalProject_Message.html">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <audio id='audio' src='dexterChamberOrchTchaikovsky.mp3'></audio>
+    <button id="playPause">play | pause</button>
+    <div id="message">
+        <div id="messageOpener">
+            <div>
+                <img src="img/messageTitle.png">
+            </div>
+            <div id="messageOpenButton">
+                <button id="writeMessage"> Write A Message</button>
+            </div>
+            <!--<div id="messageForm">
+            <input placeholder="Name*">
+            <input placeholder="Email*"> <br>
+            <input placeholder="Message*"> <br>
+            <button id="sendMessage"> Send Message</button>
+        </div>-->
+        </div>
+        <div id="messageInputBoxes">
+            <div id="messageReveal">
+                <p>
+                    <input placeholder=" Name">
+                    <select>
+                <option> Your country </option>
+                <option>USA</option>
+                <option>Italy</option>
+                <option>Germany</option>
+                <option>Holland</option>
+            </select>
+                </p>
+                <br>
+            </div>
+            <div id="cityState">
+                <p>
+                    <input placeholder=" City">
+                    <input placeholder=" State">
+                </p>
+            </div>
+            <div id="messageInputField">
+                <p>
+                    <input placeholder=" Message">
+                </p>
+            </div>
+
+            <div id="saveInfoButton">
+                <button id="save"> Send </button>
+            </div>
+        </div>
+        <!--  wrap city/state in a div to start hidden, then show later -->
+        <!--  Now the table wrapped in a div -->
+        <!--<div style="display:none">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>-->
+    </div>
+    <div id="contact">
+        <div id="contactTitle">
+            <img src="img/contactTitle.png">
+        </div>
+        <div id="contactButton">
+            <button id="showContact">See My Info</button>
+        </div>
+        <div id="contactInfo">
+            <ul>
+                <li>Email: avabhermann@gmail.com</li>
+                <li>Phone: (734) 834-9201</li>
+                <li>LinkedIn: avahermann</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+            //hide contact info
+            $("#contactInfo").hide();
+            //hide message form
+            $("#messageReveal").hide();
+            $("#messageInputField").hide();
+            $("#cityState").hide();
+            $("#saveInfoButton").hide();
+            $("select").change(function() {
+                //.val() gives the value of the selection; if it's USA
+                if ($("select").val() == "USA") {
+                    //reveal city/state
+                    $("#cityState").fadeIn();
+                }
+            });
+            $("#writeMessage").click(function() {
+                //show form
+                $("#messageReveal").fadeIn();
+                $("#messageInputField").fadeIn();
+                $("#saveInfoButton").fadeIn();
+                //use index numbers to find elements
+                $("td:eq(1)").html($("input:eq(0)").val());
+                $("td:eq(3)").html($("select").val());
+                $("td:eq(5)").html($("input:eq(1)").val());
+                $("td:eq(7)").html($("input:eq(2)").val());
+
+                //show the table
+                $("div:eq(3)").show();
+
+                //hide the form part
+                // $("div:eq(0)").hide();
+                $("#messageOpenButton").fadeOut();
+                $("#messageTitle").fadeOut();
+            });
+            $("#save").click(function() {
+                alert("Thank you! Your message has been sent.");
+
+            })
+            $("#contactButton").on("click", function() {
+                $("#contactButton").fadeOut();
+                $("#contactTitle").fadeOut();
+                $("#contactInfo").fadeIn();
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#playPause").hide();
+
+        })
+        var audio = document.getElementById('audio');
+
+        //use JavaScript to adjust settings for the audio object
+        audio.volume = 1; //goes from 0 to 1.0
+        audio.autoplay = false;
+
+        audio.controls = true;
+        //You can use this instead of your own button.  This turns on the browser's
+        //built-in audio controls.  Every browser does it differently, and you
+        //have no control over how it looks.
+
+        //listen for a click
+        var playButton = document.getElementById('playPause');
+        playButton.addEventListener("click", function() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.play();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

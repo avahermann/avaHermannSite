@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<title>
+    Ava Hermann - Home
+</title>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/257finalProject_homeStyled.css" />
+    <meta charset=”UTF-8”>
+    <meta name=”viewport” content=”width=device-width, initial scale=1”>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+
+    </script>
+</head>
+
+<body>
+    <audio id='audio' src='wildflowers.m4a'></audio>
+    <button id="playPause">play | pause</button>
+    <nav>
+        <ul>
+            <li>
+                <a href="257finalProject_home.html">Home</a>
+            </li>
+            <li>
+                <a href="257finalProject_gallery.html">Gallery</a>
+            </li>
+            <li>
+                <a href="257finalProject_Message.html">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <img src="img/homePageImageLargeGradient01.jpg">
+
+
+    <div id="portraitPhoto">
+        <img src="img/aboutPortraitColor.JPG">
+    </div>
+    <div id="aboutMe">
+        <img src="img/aboutMe.png">
+    </div>
+    <br>
+    <!--<div id="littleMe">
+        <img src="img/littleMeColorado.jpg">
+    </div>-->
+
+
+
+    <script>
+        $(document).ready(function() {
+            $("#playPause").hide();
+
+        })
+        var audio = document.getElementById('audio');
+
+        //use JavaScript to adjust settings for the audio object
+        audio.volume = 1; //goes from 0 to 1.0
+        audio.autoplay = false;
+
+        audio.controls = true;
+        //You can use this instead of your own button.  This turns on the browser's
+        //built-in audio controls.  Every browser does it differently, and you
+        //have no control over how it looks.
+
+        //listen for a click
+        var playButton = document.getElementById('playPause');
+        playButton.addEventListener("click", function() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.play();
+            }
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
